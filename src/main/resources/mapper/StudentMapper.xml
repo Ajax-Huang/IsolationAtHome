@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ajax.mapper.StudentMapper">
+    <select id="selectStudentById" resultType="com.ajax.model.Student">
+        select age,name,id from student where id=#{studentId}
+    </select>
+
+    <update id="updateByPrimaryKeySelective">
+        update student set age = #{age}, name = #{name} where id=#{id}
+    </update>
+
+    <select id="selectAllStudentCount" resultType="java.lang.Long">
+        select count(*) from student
+    </select>
+</mapper>
